@@ -5,5 +5,5 @@ jobs:
         runOnce:
           deploy:
             steps:
-              - script: echo Hello, world! 
+              - script: Start-Sleep -s 15 
                 displayName: 'Run a one-line script'
