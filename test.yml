@@ -5,5 +5,5 @@ jobs:
         runOnce:
           deploy:
             steps:
-              - script: Start-Sleep -s 15 
+              - script: timeout 15 > NUL
                 displayName: 'Run a one-line script'
