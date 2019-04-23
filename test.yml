@@ -5,5 +5,5 @@ jobs:
         runOnce:
           deploy:
             steps:
-              - script: echo 'hello world'
+              - script: echo 'hello world1'
                 displayName: 'Run a one-line script'
