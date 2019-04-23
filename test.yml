@@ -5,5 +5,5 @@ jobs:
         runOnce:
           deploy:
             steps:
-              - script: timeout 15 > NUL
+              - script: timeout 10
                 displayName: 'Run a one-line script'
