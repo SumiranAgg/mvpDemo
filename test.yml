@@ -1,6 +1,6 @@
 jobs:
   - deployment: job1
-    environment: Env1.VM1
+    environment: Env1.default-default
     strategy:
         runOnce:
           deploy:
