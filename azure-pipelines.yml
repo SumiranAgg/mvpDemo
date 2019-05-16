@@ -1,17 +1,30 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+stages:
+# - stage: Build
+#   displayName: Build stage
+#   jobs:  
+#   - job: Build
+#     displayName: Build job
+#     pool: niadak
+#     steps:
+#     - script: echo Hello, world!
+#       displayName: 'Run a one-line script'
 
-pool:
-  name: 'suaggarPool01'
+#     - script: |
+#         echo Add other tasks to build, test, and deploy your project.
+#         echo See https://aka.ms/yaml
+#       displayName: 'Run a multi-line script'
 
-jobs:
-  - deployment: job1
-    environment: suaggarEnv.VMGroup
+- stage: Deploy
+  displayName: Deploy stage
+  jobs:  
+  - deployment: VMDeploy
+    displayName: Deploy to VM job
+    environment: suaggarEnv
+    pool: suaggarPool01
     strategy:
-        runOnce:
-          deploy:
-            steps:
-              - script: echo 'hello world1'
-                displayName: 'Run a one-line script'
+      rolling:
+        maxBatchSize: 2
+        deploy:
+          steps:
+            - script: echo Hello, world! This is deploy job
+              displayName: 'Run a one-line script'
