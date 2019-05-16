@@ -9,11 +9,12 @@ trigger:
 pool:
   name: 'suaggarPool01'
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+jobs:
+  - deployment: job1
+    environment: suaggarEnv.VMGroup
+    strategy:
+        runOnce:
+          deploy:
+            steps:
+              - script: echo 'hello world1'
+                displayName: 'Run a one-line script'
