@@ -19,8 +19,7 @@ stages:
   jobs:  
   - deployment: VMDeploy
     displayName: Deploy to VM job
-    environment: suaggarEnv
-    pool: suaggarPool01
+    environment: suaggarEnv.VMGroup
     strategy:
       rolling:
         maxBatchSize: 2
