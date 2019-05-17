@@ -14,16 +14,17 @@ stages:
 #         echo See https://aka.ms/yaml
 #       displayName: 'Run a multi-line script'
 
-
-jobs:  
-- deployment: VMDeploy
-  displayName: Deploy to VM job
-  environment: Env1
-  pool: default
-  strategy:
-    rolling:
-      maxBatchSize: 2
-      deploy:
-        steps:
-          - script: echo Hello, world! This is deploy job
-            displayName: 'Run a one-line script'
+- stage: Deploy
+  displayName: Deploy stage
+  jobs:  
+  - deployment: Deploy
+    displayName: Deploy job
+    pool:
+      name: default
+    environment: Env1
+    strategy:
+        runOnce:
+          deploy:
+            steps:
+            - script: echo Hello, world! This is deploy job
+              displayName: 'Run a one-line script'
