@@ -20,7 +20,7 @@ stages:
   - deployment: Deploy
     displayName: Deploy job
     pool:
-      name: default
+      vmImage: vs2017-win2016
     environment: Env1
     strategy:
         runOnce:
